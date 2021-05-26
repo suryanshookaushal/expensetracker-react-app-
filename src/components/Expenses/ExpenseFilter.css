@@ -1,0 +1,43 @@
+.expense_filter{
+    width: 100%;
+    background-color: none;
+}
+.header_filter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.header_filter p{
+    color: white;
+}
+
+.header_filter select{
+    height: 40px;
+    padding: 5px 25px;
+    outline: none;
+}
+
+.graph_filter{
+    width: 100%;
+    background-color: #E5BCF2;
+    border-radius: 12px;
+    height: 120px;
+    padding: 8px 0px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+}
+
+.expense_graph{
+    background-color: #A1A2CA;
+    width: 10px;
+    height: 85%;
+    border-radius: 5px;
+}
+
+.break{
+    display: block;
+    width: 100%;
+    height: 0;
+}
