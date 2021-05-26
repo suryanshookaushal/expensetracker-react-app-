@@ -11,20 +11,27 @@ const NewExpense = (props)=>{
         props.expensedatainfo(expensesinfo)
     }
 
-    const [showForm, setShowForm] = useState(false);
+    const [showForm, setShowForm] = useState(true);
 
     const showformHandler = (event)=>{
         event.preventDefault()
         setShowForm(!showForm)
     }
+    const cancelbuttonHandler = (binfo)=>{
+        setShowForm(!showForm)
+    }
+    
+    let showContent =<form className="showform">
+                        <button onClick={showformHandler}>Add New Expense</button>
+                    </form>
+
+    if(showForm===false){
+        showContent = <ExpenseForm onformsubmit={formSubmithandler} cancelled={cancelbuttonHandler}/>
+    }
+
     return(
         <div className="new_expense">
-            <form className="showform">
-                <button onClick={showformHandler}>Add New Expense</button>
-            </form>
-            {showForm && (
-                <ExpenseForm onformsubmit={formSubmithandler}/>
-            )}
+            {showContent}
         </div>
     )
 }

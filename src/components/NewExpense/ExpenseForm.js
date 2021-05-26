@@ -34,6 +34,10 @@ const ExpenseForm = (props)=>{
         setentereddate('')
     }
 
+    const cancelButton = (e)=>{
+        props.cancelled(e.target.value)
+    }
+
     return(
         <form onSubmit={formSubmission}>
             <div className="expense_formcontrols">
@@ -43,7 +47,7 @@ const ExpenseForm = (props)=>{
                 </div>
                 <div className="expense_formcontrol">
                     <label>Amount</label>
-                    <input type="number" value={enteredamount} onChange={setamountHandler}/>
+                    <input type="number" min="0.01" value={enteredamount} onChange={setamountHandler}/>
                 </div>
                 <div className="expense_formcontrol">
                     <label>Date</label>
@@ -51,6 +55,7 @@ const ExpenseForm = (props)=>{
                 </div>
                 </div>
             <div className="expense_formbutton">
+                <button type="submit" onClick={cancelButton} value="cancel">Cancel</button>
                 <button type="submit">Add Expense</button>
             </div>
         </form>

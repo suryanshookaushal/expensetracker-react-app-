@@ -1,19 +1,19 @@
-import logo from './logo.svg';
 import ExpenseDetails from './components/Expenses/ExpenseDetails'
+import {useState} from 'react'
 import NewExpense from './components/NewExpense/NewExpense'
 import './App.css';
 
 const App = ()=>{
-  const expenses = [
+  const dummy_expenses = [
     {
     id: 'ed1',
     title: 'Car Insurance',
-    date: new Date(2021, 2, 28),
+    date: new Date(2019, 2, 28),
     amount: 294.67
   }, {
     id: 'ed2',
     title: 'Life Insurance',
-    date: new Date(2021, 1, 31),
+    date: new Date(2020, 1, 31),
     amount: 500.67,
   }, {
     id: 'ed3',
@@ -27,11 +27,16 @@ const App = ()=>{
     amount: 494.67,
   }
 ]
+
+const [expenses, setexpenses] = useState(dummy_expenses)
+
 const expensehandler = (expensedata)=>{
-  const expenses = {
+  const expensesin = {
     ...expensedata
   }
-  console.log(expenses)
+  setexpenses(expenses=>{
+    return [expensesin,...expenses]
+  })
 }
   return (
     <div className="App">

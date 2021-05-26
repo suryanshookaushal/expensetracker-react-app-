@@ -7,35 +7,33 @@ import { useState } from 'react'
 const ExpenseDetails = (props)=>{
     const expenses = props.details
 
-    const [selectedyear, setselectedyear] = useState('2020')
+    const [selectedyear, setselectedyear] = useState('2021')
     
     const expenseyearinfo = (infoyear)=>{
         setselectedyear(infoyear)
     }
 
+    const filteredyear = expenses.filter((expense)=>{
+        return expense.date.getFullYear().toString()===selectedyear
+    })
+
+    let expenseContent = <p>No Item found</p>
+
+    if(filteredyear.length>0){
+        expenseContent = filteredyear.map((value)=>{
+            return <ExpenseItem
+            key = {value.id}
+            title = {value.title}
+            date = {value.date}
+            price = {value.amount}
+            />
+        })
+    }
+
     return(
         <Card className="expenses">
             <ExpenseFilter selectedy={selectedyear} expenseyear={expenseyearinfo}/>
-            <ExpenseItem 
-                title = {expenses[0].title}
-                date = {expenses[0].date}
-                price = {expenses[0].amount}
-            />
-            <ExpenseItem 
-                title = {expenses[1].title}
-                date = {expenses[1].date}
-                price = {expenses[1].amount}
-            />
-            <ExpenseItem 
-                title = {expenses[2].title}
-                date = {expenses[2].date}
-                price = {expenses[2].amount}
-            />
-            <ExpenseItem 
-                title = {expenses[3].title}
-                date = {expenses[3].date}
-                price = {expenses[3].amount}
-            />
+            {expenseContent}
       </Card>
     )
 }
