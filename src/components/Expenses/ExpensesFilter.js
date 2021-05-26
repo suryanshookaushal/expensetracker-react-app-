@@ -17,32 +17,6 @@ const ExpenseFilter = (props)=>{
                     <option value="2022">2022</option>
                 </select>
             </div>
-            <div className="graph_filter">
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-                <div className="expense_graph">
-                    </div>
-            </div>
         </div>
     )
 
